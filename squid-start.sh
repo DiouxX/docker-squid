@@ -17,7 +17,7 @@ function squid_config() {
         if $LDAP_ENABLE
         then
                 echo "LDAP Enable"
-                echo -e "auth_param basic program /usr/lib/squid3/basic_ldap_auth -b $LDAP_DN -f $LDAP_ATTRIBUT -h $LDAP_HOST:$LDAP_PORT\nauth_param basic children 5\nauth_param basic realm Your Proxy\nauth_param basic credentialsttl 2 hours\nacl ldapauth proxy_auth REQUIRED\nacl authenticated proxy_auth REQUIRED\nhttp_access allow ldapauth" >> /etc/squid3/squid.conf
+                echo -e "auth_param basic program /usr/lib/squid3/basic_ldap_auth -b $LDAP_DN -f $LDAP_ATTRIBUT -h $LDAP_HOST:$LDAP_PORT\nauth_param basic children 5\nauth_param basic realm $PROXY_NAME\nauth_param basic credentialsttl 2 hours\nacl ldapauth proxy_auth REQUIRED\nacl authenticated proxy_auth REQUIRED\nhttp_access allow ldapauth" >> /etc/squid3/squid.conf
         else
                 #Add allow directive and fowarded_for
                 echo "http_access allow all" >> /etc/squid3/squid.conf
