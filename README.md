@@ -31,3 +31,25 @@ Restart container
 ```sh
 docker restart squid
 ```
+
+## Deploy with docker-compose
+
+You can deploy squid docker with docker-compose.
+
+* First, create docker-compose.yml
+```
+#SQUID Container
+squid:
+  image: diouxx/squid
+  container_name: squid
+  hostname: squid
+  ports:
+    - "3128:3128"
+  restart: always
+````
+
+To deploy, just run the following command on the same directory as file
+
+```sh
+docker-compose up -d
+````
