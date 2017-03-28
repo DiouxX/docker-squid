@@ -2,7 +2,7 @@
 
 Install and run an Squid3 instance with docker.
 
-You can use LDAP authentification or no authentication to run an open proxy
+You can use LDAP authentication or like an open proxy
 
 ## Deploy Squid3
 ```sh
