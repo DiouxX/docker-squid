@@ -2,11 +2,7 @@
 
 function squid_config() {
 
-	#Copy LDAP config file
-        cp /opt/ldap.config /etc/squid3/
-        echo "Copy ldap.conf -> /etc/squid3"
-
-        #Comment user deny to open proxy
+	#Comment user deny to open proxy
         sed -i "s/^\(http_access deny all\)/# \1/g" /etc/squid3/squid.conf
         echo "Comment http_access deny all"
 
@@ -46,6 +42,10 @@ then
         #Erase file config
         cp /etc/squid3/squid.conf.origin /etc/squid3/squid.conf
         echo "Copy squid.conf.origin -> squid.conf"
+	
+	#Copy LDAP config file
+        cp /opt/ldap.config /etc/squid3/
+	echo "Copy ldap.conf -> /etc/squid3"
 
         #Squid config
         squid_config
@@ -55,6 +55,10 @@ else
         echo "File /etc/squid3/squid.conf.origin doesn't exist"
         cp /etc/squid3/squid.conf /etc/squid3/squid.conf.origin
         echo "Copy squid.conf -> squid.conf.origin"
+	
+	#Copy LDAP config file
+        cp /opt/ldap.config /etc/squid3/
+	echo "Copy ldap.conf -> /etc/squid3"
 
         #Squid config
         squid_config
