@@ -6,7 +6,7 @@ You can use LDAP authentication or like an open proxy
 
 ## Deploy Squid3
 ```sh
-docker run --name squid -p 3128:3128 -d diouxx/squid3
+docker run --name squid --hostname squid -p 3128:3128 -d diouxx/squid
 ```
 
 ## Settings
@@ -46,10 +46,10 @@ squid:
   ports:
     - "3128:3128"
   restart: always
-````
+```
 
 To deploy, just run the following command on the same directory as file
 
 ```sh
 docker-compose up -d
-````
+```
