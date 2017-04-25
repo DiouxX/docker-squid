@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 #Install Squid3
 RUN apt update \
 && apt -y upgrade \
-&& apt -y install nano squid3
+&& apt -y install nano ca-certificates squid3
 
 #Ports
 EXPOSE 3128
