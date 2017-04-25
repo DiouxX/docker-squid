@@ -3,13 +3,17 @@
 function squid_config() {
 
 	#Comment user deny to open proxy
-        sed -i "s/^\(http_access deny all\)/# \1/g" /etc/squid3/squid.conf
         echo "Comment http_access deny all"
+        sed -i "s/^\(http_access deny all\)/# \1/g" /etc/squid3/squid.conf
 
 
         #If set to off, Squid will dont append your client's IP address
-        echo "forwarded_for off" >> /etc/squid3/squid.conf
         echo "forwarded_for off"
+        echo "forwarded_for off" >> /etc/squid3/squid.conf
+
+	#Copy LDAP config file
+	echo "Copy ldap.conf -> /etc/squid3"
+        cp /opt/ldap.config /etc/squid3/
 
         #Loading LDAP variable
         source /etc/squid3/ldap.config
@@ -30,8 +34,8 @@ function squid_config() {
         else
 		echo "LDAP Disable"
                 #Add allow directive and fowarded_for
-                echo "http_access allow all" >> /etc/squid3/squid.conf
                 echo "http_access allow all"
+                echo "http_access allow all" >> /etc/squid3/squid.conf
         fi
 }
 
@@ -43,10 +47,6 @@ then
         cp /etc/squid3/squid.conf.origin /etc/squid3/squid.conf
         echo "Copy squid.conf.origin -> squid.conf"
 	
-	#Copy LDAP config file
-        cp /opt/ldap.config /etc/squid3/
-	echo "Copy ldap.conf -> /etc/squid3"
-
         #Squid config
         squid_config
 
@@ -56,14 +56,12 @@ else
         cp /etc/squid3/squid.conf /etc/squid3/squid.conf.origin
         echo "Copy squid.conf -> squid.conf.origin"
 	
-	#Copy LDAP config file
-        cp /opt/ldap.config /etc/squid3/
-	echo "Copy ldap.conf -> /etc/squid3"
-
         #Squid config
         squid_config
 fi
 
+#Delete PID file before else crash on docker restart
+rm -rf /var/run/squid3.pid
 
 #Launch squid on foreground
 /usr/sbin/squid3 -NCd1 -f /etc/squid3/squid.conf
