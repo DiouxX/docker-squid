@@ -5,4 +5,7 @@ squid:
   hostname: squid
   ports:
     - "3128:3128"
+  volumes:
+    - /etc/timezone:/etc/timezone:ro
+    - /etc/localtime:/etc/localtime:ro
   restart: always
