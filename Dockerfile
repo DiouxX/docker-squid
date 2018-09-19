@@ -1,7 +1,7 @@
 #Choose Debian
 FROM debian:latest
 
-MAINTAINER DiouxX "github@diouxx.be"
+LABEL maintainer="DiouxX - github@diouxx.be"
 
 #Don't ask questions during install
 ENV DEBIAN_FRONTEND noninteractive
