@@ -1,11 +1,13 @@
-#SQUID Container
-squid:
-  image: diouxx/squid
-  container_name: squid
-  hostname: squid
-  ports:
-    - "3128:3128"
-  volumes:
-    - /etc/timezone:/etc/timezone:ro
-    - /etc/localtime:/etc/localtime:ro
-  restart: always
+version: '3.2'
+
+services: 
+  squid:
+    image: diouxx/squid
+    container_name: squid
+    hostname: squid
+    ports:
+      - "3128:3128"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
