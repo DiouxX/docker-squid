@@ -60,7 +60,7 @@ version: '3.2'
 
 services: 
   squid:
-    image: squid
+    image: diouxx/squid
     container_name: squid
     hostname: squid
     ports:
@@ -78,10 +78,10 @@ services:
 version: '3.2'
 
 services: 
-  squid-test:
-    image: squid-test
-    container_name: squid-test
-    hostname: squid-test
+  squid:
+    image: diouxx/squiq
+    container_name: squid
+    hostname: squid
     ports:
       - "3128:3128"
     volumes:
@@ -103,10 +103,10 @@ services:
 version: '3.2'
 
 services: 
-  squid-test:
-    image: squid-test
-    container_name: squid-test
-    hostname: squid-test
+  squid:
+    image: diouxx/squid
+    container_name: squid
+    hostname: squid
     ports:
       - "3128:3128"
     volumes:
