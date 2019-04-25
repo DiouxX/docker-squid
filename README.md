@@ -79,7 +79,7 @@ version: '3.2'
 
 services: 
   squid:
-    image: diouxx/squiq
+    image: diouxx/squid
     container_name: squid
     hostname: squid
     ports:
