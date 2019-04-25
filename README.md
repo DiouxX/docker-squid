@@ -1,6 +1,6 @@
-# Project to deploy Squid3 with docker
+# Project to deploy Squid with docker
 
-- [Project to deploy Squid3 with docker](#project-to-deploy-squid3-with-docker)
+- [Project to deploy Squid with docker](#project-to-deploy-squid-with-docker)
 - [Introduction](#introduction)
 - [Deploy witch CLI](#deploy-witch-cli)
   - [Deploy Squid on open proxy mode](#deploy-squid-on-open-proxy-mode)
@@ -22,7 +22,7 @@
 
 # Introduction
 
-Install and run an Squid3 instance with docker.
+Install and run an Squid instance with docker.
 
 You can use LDAP authentication or like an open proxy
 
